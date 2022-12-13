@@ -1,0 +1,37 @@
+<div class="container">
+    <div>
+        <h2>Modifier Bus :</h2>
+    </div>
+    <form>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Bus</label>
+            <input readonly type="text" [(ngModel)]="currentBus.idBus" name="idBus" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Bus</label>
+            <input type="text" [(ngModel)]="currentBus.nomBus" name="nomBus" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Bus</label>
+            <input type="number" [(ngModel)]="currentBus.prixBus" name="prixBus" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date création</label>
+            <input type="date" [ngModel]="currentBus.dateCreation | date: 'yyyy-MM-dd'"
+                (ngModelChange)=" currentBus.dateCreation= $event" name="dateCreation" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <select class="form-control form-control-lg" id="idMar" name="idMar" [(ngModel)]="updatedMarId">
+            <option *ngFor="let mar of marques" [value]="mar.idMar" >
+            {{mar.nomMar}}
+            </option>
+            </select>
+            </div>
+        <div class="mt-2">
+
+            <button type="submit" (click)="updateBus()" class="btn btn-success">Modifer</button>
+
+        </div>
+    </form>
+
+</div>

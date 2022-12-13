@@ -1,0 +1,28 @@
+
+    <div class="container">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date Création</th>
+                        <th>Marque</th> 
+                    </tr>
+                    <tbody *ngFor="let bus of buss">
+                        <tr>
+                            <td>{{bus.idBus}}</td>
+                            <td>{{bus.nomBus}}</td>
+                            <td>{{bus.prixBus}}</td>
+                            <td>{{bus.dateCreation | date:'dd/MM/yyyy'}}</td>
+                            <td>{{bus.marque.nomMar}}</td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerBus(bus)">Supprimer</a></td>
+                            <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateBus',bus.idBus]">Modifier</a></td>
+                        </tr>
+                    </tbody>
+    
+                </table>
+            </div>
+        </div>
+    </div>
